@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_check.css') }}">
+    <title>Admin - users</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Users</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ loop.index }}) Name: {{ user[4] }}, Email: {{ user[3] }}, Username: {{ user[1] }}, Registration: {{ user[5] }}</td>
+                            <form action="/admin/delete_user" method="post">
+                                <input type="hidden" name="user_id" value="{{ user[0] }}">
+                                <td><button type="submit", id="delete">Delete user</button></td>
+                            </form>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

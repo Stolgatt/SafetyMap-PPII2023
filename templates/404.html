@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Page Not Found</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Error 404 - Page Not Found</h1>
+    <p>The page you are looking for does not exist.</p>
+    <p>Go back to <a href="/">homepage</a>.</p>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script src="{{ url_for('static', filename='js/game-script.js') }}"></script>
+    <script>
+        // Initialize the game
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        gameLoop();
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - SafetyMap</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/connect.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div>
+        <a href='/'>Retour à l'accueil ?</a>
+    </div>
+    <div class="login">
+        <div class="container">
+            <a href='/'>
+                <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="logo">
+            </a>
+            <h1>Se connecter</h1>
+            <form method="POST" action="/login">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur :</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <div class="password-container">
+                        <label for="password">Mot de passe :</label>
+                        <input type="password" id="password" name="password" required>
+                        <i id="togglePassword" class="fas fa-eye-slash show-password"></i>
+                    </div>
+                    {% block error%}
+                        {% for error in errors %}
+                            <p class="error" style="color: red;">{{error}}</p>
+                        {% endfor %}
+                    {% endblock %}
+                </div>
+                <input type="hidden" name="next" value="{{request.args.get('next')}}" />
+                
+                <button type="submit">Login</button>
+
+            </form>
+            <script>
+                function togglePasswordVisibility() {
+                    var passwordInput = document.getElementById('password');
+                    var toggleButton = document.getElementById('togglePassword');
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        toggleButton.classList.remove('fa-eye-slash');
+                        toggleButton.classList.add('fa-eye');
+                    } else {
+                        passwordInput.type = 'password';
+                        toggleButton.classList.remove('fa-eye');
+                        toggleButton.classList.add('fa-eye-slash');
+                    }
+                }
+                document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+            </script>
+            <a href='/forgot_password'>Mot de passe oublié ?</a>
+            <a href='/register'>Pas encore de compte ? S'enregistrer</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}    
+    <title>Mentions Légales - SafetyMap</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/legal.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main" id="mentions-legales">
+    <h1>Mentions Légales</h1>
+
+    <br>
+
+    <section>
+        <p><strong>Site</strong></p>
+        <p>&#x2022; Site internet (ci-après « le Site ») : désigne le site <a href="https://safetymap.fr">https://safetymap.fr</a></p>
+    </section>
+
+    <section>
+        <p><strong>Propriétaire du site :</strong></p>
+        <p>&#x2022; Nom : Arthur Saunier</p>
+        <p>&#x2022; Adresse : 41 Bd Maréchal Lyautey, 54600 Villers-lès-Nancy</p>
+        <p>&#x2022; Contact : safetymap.mail@gmail.com</p>
+    </section>
+
+    <section>
+        <p><strong>Hébergement :</strong></p>
+        <p>&#x2022; Nom : AMAZON WEB SERVICES EMEA SARL</p>
+        <p>&#x2022; Adresse : 38 Av. John F. Kennedy, 1855 Neudorf-Weimershof Luxembourg</p>
+    </section>
+
+    <section>
+    <p><strong>Utilisation des données personnelles collectées</strong></p>
+    <p>&#x2022; Les données personnelles collectées sur le Site sont uniquement destinées au bon fonctionnement du site. En aucun cas ces données ne seront cédées ou vendues à des tiers.</p>
+    </section>
+
+
+    <section>
+    <p><strong>Responsabilité</strong></p>
+    <p>&#x2022; Le propriétaire du Site ne pourra être tenu responsable de l'inexactitude des informations et du contenu des informations fournies sur le Site, ainsi que des conséquences pouvant en découler. Les informations fournies sur le Site sont données à titre indicatif et ne sauraient dispenser l'utilisateur d'une analyse complémentaire.</p>
+    </section>
+
+    <section>
+    <p><strong>Modification du site</strong></p>
+    <p>&#x2022; Le propriétaire du Site se réserve le droit de modifier ou de corriger le contenu de ce site et cette mention légale à tout moment et ceci sans préavis. L'utilisateur est donc invité à la consulter régulièrement.</p>
+    </section>
+</div>
+{% endblock %}

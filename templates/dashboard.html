@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+
+{% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord - SafetyMap</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="infos">
+        <p class="title">Tableau de bord</p>
+        <p>Nom et prénom : {{ posts[4] }}<br /></p>
+        <p>Nom d'utilisateur : {{ posts[1] }}<br /></p>
+        <p>Adresse mail : {{ posts[3] }}<br /></p>
+        <p>Mot de passe : ********      <a href="/edit_password" style="float: right; padding-right: 10px">Modifier le mot de passe</a></p>
+    </div>
+    <div class="stats">
+        <p class="title">Statistiques</p>
+        <p>Nombre de signalements : {{ total }}<br /></p>
+        <p>Nombre de signalements cette semaine : {{ weekly }}<br /></p>
+        <p>Nombre de signalements ce mois-ci : {{ monthly }}<br /></p>
+        <!-- <p>Signalement majeur : {{ most_reported_incident[0] }} ({{ most_reported_incident[1] }})</p> -->
+    </div>        
+</div>
+<div class="bottom">
+    <div class="map-reports-section">
+        <div id="map"></div>
+        <div class="reports">
+            {% block reports %}
+            {% for report in reports %}
+            <a href="#">
+                <div class="report-card" lat="{{ report[3] }}" long="{{ report[4] }}" id="{{ loop.index }}">
+                    <h3>Signalements {{ loop.index }}</h3>
+                    <p>Type d'agression : {{ types_dict[report[5]] }}</p>
+                    <p>Date : {{ report[1] }}</p>
+                    <p>Coordonnées : {{ report[3] }}, {{ report[4] }}</p>
+                </div>
+            </a>
+            {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<input type="hidden" id="id" value="{{ id }}">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="{{ url_for('static', filename='js/map_dashboard.js') }}"></script>
+{% endblock %}
+

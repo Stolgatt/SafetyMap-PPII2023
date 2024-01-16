@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - SafetyMap</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/feedback.css') }}">
+</head>
+<body>
+    <div>
+        <a href='/'>Retour à la page d'accueil ?</a>
+    </div>
+    <div class="feedback">
+        <div class="container">
+            <a href='/'>
+                <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="logo">
+            </a>
+            <h1>Feedback</h1>
+            <h2>Vous avez une question, un retour ?</h2>
+            <form method="POST" action="/feedback">
+                {% block user %}
+                <div class="feed-group">
+                    <label for="nom">Nom et prénom :</label>
+                    {% if user == [] %}
+                    <input type="text" id="name" name="name" required>
+                    {% else %}
+                    <input type="text" id="name" name="name" value="{{user[0]}}" required>
+                    {% endif %}
+                </div>
+                <div class="feed-group">
+                    <label for="email">Adresse mail :</label>
+                    {% if user == [] %}
+                    <input type="email" id="email" name="email" required>
+                    {% else %}
+                    <input type="email" id="email" name="email" value="{{user[1]}}" required>
+                    {% endif %}
+                </div>
+                <div class="feed-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <input type="hidden" name="next" value="{{request.args.get('next')}}" />
+                
+                <button type="submit">Envoyer</button>
+                {% endblock user %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>

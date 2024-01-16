@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="page-wrapper">
+                    <div class="nav-wrapper">
+                        <div class="grad-bar"></div>
+                        <nav class="navbar">
+                        <div class="left">
+                            <a href="/"><img src="{{ url_for('static', filename='images/LogoTransparent.png') }}" alt="Company Logo"></a>
+                            <a href="/"><p>SafetyMap</p></a>
+                        </div>
+                        {% block logged %}
+                            {% if not loggedin %}
+                            <ul>
+                                <li class="nav-item"><a href="/">Accueil</a></li>
+                                <li class="nav-item"><a href="/login">Connexion</a></li>
+                                <li class="nav-item"><a href="/register">S'enregistrer</a></li>
+                            </ul>
+                            {% else %}
+                            <ul>
+                                <li class="nav-item"><a href="/">Accueil</a></li>
+                                <li class="nav-item"><a href="/dashboard">Tableau de bord</a></li>
+                                {% block admin %}
+                                    {% if admin == True %}
+                                        <li class="nav-item"><a href="/admin">Admin</a></li>
+                                    {% endif %}
+                                {% endblock %}
+                                <li class="nav-item"><a href="/logout">Déconnexion</a></li>
+                            </ul>
+                            {% endif %}
+                        {% endblock %}
+                        
+                        </nav>
+                        <div class="grad-bar"></div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+        <footer class="bottom-text">
+            <p>&copy; 2023 SafetyMap. All rights reserved.</p>
+            <a href="/a_propos">À propos</a>
+            <a href="/feedback">Contact</a>
+            <a href="/legal">Mentions Légales</a>
+        </footer>
+    </body>
+</html>

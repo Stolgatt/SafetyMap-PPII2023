@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de l'inscription</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2[class="text"]{
+            color: #666;
+            text-align: center;
+        }
+        h2 a{
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mail de confirmation envoyé</h1>
+    <h2 class="text">Un mail de confirmation d'inscription a été envoyé à votre adresse email. Veuillez cliquer sur le lien dans le mail pour activer votre compte.
+    <a href="/">--> Retour à la page d'accueil <--</a></h2>
+</body>
+</html>

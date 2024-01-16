@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'enregistrer - SafetyMap</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/connect.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div>
+        <a href='/'>Retour à l'accueil ?</a>
+    </div>
+    <div class="login">
+        <div class="container">
+            <a href='/'>
+                <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="logo">
+            </a>
+            <h1>S'enregistrer</h1>
+            <form action="/register" method="post">
+                <div class="form-group">
+                    <label for="name">Nom et prénom:</label>
+                    <input type="text" id="name" name="name" required><br>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse mail :</label>
+                    <input type="email" id="email" name="email" required><br>
+                </div>
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur :</label>
+                    <input type="username" id="username" name="username" required><br>
+                </div>
+                <div class="form-group">
+                    <div class="password-container">
+                        <label for="password">Mot de passe:</label>
+                        <input type="password" id="password" name="password" required>
+                        <i id="togglePassword" class="fas fa-eye-slash show-password"></i>
+                    </div> 
+                </div>
+                <button type="submit">S'enregistrer</button>
+            </form>
+            <script>
+                function togglePasswordVisibility() {
+                    var passwordInput = document.getElementById('password');
+                    var toggleButton = document.getElementById('togglePassword');
+                    if (passwordInput.type === 'password') {
+                        passwordInput.type = 'text';
+                        toggleButton.classList.remove('fa-eye-slash');
+                        toggleButton.classList.add('fa-eye');
+                    } else {
+                        passwordInput.type = 'password';
+                        toggleButton.classList.remove('fa-eye');
+                        toggleButton.classList.add('fa-eye-slash');
+                    }
+                }
+                document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+            </script>
+            <div style="color: red;margin-top: 20px;">{{ error }}</div>
+
+            <a href='/login'>Déjà enregistré ? Aller à la page de connexion</a>
+        </div>
+    </div>
+</body>
+</html>

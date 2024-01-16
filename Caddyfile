@@ -1,0 +1,7 @@
+www.safetymap.fr {
+    redir https://safetymap.fr{uri}
+}
+
+safetymap.fr {
+    reverse_proxy localhost:8000
+}

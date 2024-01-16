@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_check.css') }}">
+    <title>Admin - FeedBacks</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Feedbacks</th>
+        </tr>
+        <tr>
+            <td>
+                <table>
+                    {% for feedback in feedbacks %}
+                        <tr>
+                            <td>{{ loop.index }}) Name: {{ feedback[1] }}, Email: {{ feedback[2] }}, Content: {{ feedback[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
