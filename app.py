@@ -346,12 +346,12 @@ def feedback():
         else :
             return render_template('feedback.html', user = [])
     elif request.method == 'POST':
-        user_id = get_user_id()
         message = request.form['message']
-        
+        mail = request.form['email']
+        name = request.form['name']
         db = get_db()
         c = db.cursor()
-        c.execute("INSERT INTO feedbacks (user_id, time, content) VALUES (?, ?, ?);", (user_id, datetime.now(), message))
+        c.execute("INSERT INTO feedbacks (name, email, time, content) VALUES (?, ?, ?, ?);", (name, mail, datetime.now(), message))
         db.commit()
         return redirect('/')
 
