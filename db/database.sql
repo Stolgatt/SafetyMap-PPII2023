@@ -80,8 +80,8 @@ insert into incident_reports(time, user_id, lat, long, type_id) values('2023-12-
 insert into incident_reports(time, user_id, lat, long, type_id) values('2023-12-24 17:03:00', 3, 48.70514, 6.2451, 3);
 insert into incident_reports(time, user_id, lat, long, type_id) values('2023-12-24 17:01:00', 4, 48.70434, 6.24594, 6);
 insert into incident_reports(time, user_id, lat, long, type_id) values('2024-01-16 23:19:00', 3, 48.68796, 6.14207, 7);
-insert into incident_reports(time, user_id, lat, long, type_id) values('2024-01-16 23:05:00', 2, 48.66943, 6.13803, 7);
-insert into incident_reports(time, user_id, lat, long, type_id) values('2024-01-16 23:49:00', 2, 48.68803, 6.15509, 3);
+insert into incident_reports(time, user_id, lat, long, type_id) values('2024-01-16 23:05:00', 2, 48.68876, 6.13803, 7);
+insert into incident_reports(time, user_id, lat, long, type_id) values('2024-01-16 23:49:00', 2, 48.66943, 6.15509, 3);
 insert into incident_reports(time, user_id, lat, long, type_id) values('2024-01-16 23:50:00', 2, 48.66889, 6.1552, 6);
 
 insert into admins(user_id) values(1);

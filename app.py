@@ -449,6 +449,7 @@ def delete_user():
     db = get_db()
     c = db.cursor()
     c.execute("DELETE FROM users WHERE user_id = ?;", (user_id,))
+    c.execute("DELETE FROM sessions WHERE user_id = ?;", (user_id,))
     db.commit()
     return redirect('/admin/users')
 
