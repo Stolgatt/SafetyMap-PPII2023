@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mukta", sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+  }
+  
+  
+  .page-wrapper {
+    width: 100%;
+    height: auto;
+  }
+
+  .page-wrapper a {
+    text-decoration: none;
+  }
+  
+  .nav-wrapper {
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+  }
+  
+  .grad-bar {
+    width: 100%;
+    height: 0.5vh;
+    background: linear-gradient(-45deg, #4BD3F2, #022A48);
+    background-size: 400% 400%;
+    -webkit-animation: gradbar 8s ease infinite;
+    -moz-animation: gradbar 8s ease infinite;
+    animation: gradbar 8s ease infinite;
+  }
+  
+  
+  
+  .navbar {
+    display: flex;
+    grid-template-columns: space-between;
+    align-items: center;
+    height: 5vh;
+    overflow: hidden;
+  }
+  
+  
+  .navbar .left {
+    display: flex;
+    align-items: center;
+    /* justify-self: start; */
+  }
+  
+  .navbar .left p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #022B48;
+    /* justify-self: star&t; */
+    padding-left : 10px;
+  }
+  
+  .navbar .left img{
+    height: 42px;
+    width: auto;
+    margin-left: 20px;
+  }
+  
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    margin-left:auto;
+    /* grid-template-columns: repeat(4, 150px);
+    justify-self: end; */
+    transition: color 0.3s ease-out;
+  }
+  
+  
+  .nav-item {
+    margin: 0 10px;
+  }
+  
+  
+  .nav-item a {
+    color: #000;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+  }
+  
+  .nav-item a:hover {
+    color: #3498db;
+  }
+
+  @-webkit-keyframes gradbar {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @-moz-keyframes gradbar {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes gradbar {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .bottom-text {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    height: 65px;
+  }
+
+  .wrapper {
+    min-height: 100%;
+    padding-bottom: 65px; 
+    box-sizing: border-box;
+    }
+
+.bottom-text a {
+  color: white;
+  text-decoration: none;
+}
+
+.bottom-text a:visited {
+  color: white;
+}
+
+.bottom-text a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.bottom-text a:active {
+    color: white;
+}

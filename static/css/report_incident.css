@@ -1,0 +1,163 @@
+body {
+    background-color: #f0f0f0;
+    font-family: "Mukta", sans-serif;
+}
+
+.report {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.report h1 {
+    color: #333;
+}
+
+.report h2 {
+    color: #333;
+}
+
+
+.report img {
+    margin-right: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+
+.report #map { 
+    margin-right: 1px;
+    width: 720px;
+    height: 600px; 
+    margin-bottom: 25px;
+  }
+
+
+.report .container{
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.report .container .form-container {
+    flex: 2; 
+    padding: 20px; 
+}
+
+
+.report .container .map-container {
+    flex: 1;
+    padding: 20px;
+    margin-left: 20;
+}
+
+
+.report .container .form-container .form-group .select{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: black 1px solid;
+    border-radius: 15px ;
+}
+
+.report .container .form-container .form-group .select:hover{
+    border:#007BFF 1px solid;
+}
+
+
+.report .container .form-container .form-group {
+    margin-bottom: 20px;
+}
+
+.report .container .form-container .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.report .container .form-container .form-group input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: black 1px solid;
+    border-radius: 15px ;
+}
+
+.report .container .form-container .form-group input:hover {
+    border: #007BFF 1px solid;
+} 
+
+
+.report .container #submit {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.report .container #submit:hover {
+    background-color: #00457C;
+}
+
+.report .container .form-container .form-group a {
+    display: block;
+    margin-top: 20px;
+    color: #007BFF;
+}
+
+.report .container .form-container .form-group select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: white;
+    cursor: pointer;
+}
+
+.report .container .form-container .form-group select:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.report .container .form-container .form-group select:hover {
+    border-color: #00457C;
+}
+
+.report .container .form-container .form-group option {
+    padding: 8px;
+    background-color: white;
+    border: none;
+}
+
+
+
+.leaflet-control-custom {
+  background-color: white;
+  padding: 5px;
+}
+
+.leaflet-control-custom button {
+  background: #f4f4f4;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.leaflet-control-custom button:hover {
+  background: #e7e7e7;
+}

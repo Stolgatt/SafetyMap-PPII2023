@@ -1,0 +1,211 @@
+<!--<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A propos - SafetyMap</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/a_propos.css') }}">
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="nav-wrapper">
+          <div class="grad-bar"></div>
+          <nav class="navbar">
+            <div class="left">
+                <a href="/"><img src="{{ url_for('static', filename='images/LogoTransparent.png') }}" alt="Company Logo"></a>
+                <a href="/"><p>SafetyMap</p></a>
+            </div>
+            {% block logged %}
+              {% if not loggedin %}
+                <ul>
+                  <li class="nav-item"><a href="/">Accueil</a></li>
+                  <li class="nav-item"><a href="/a_propos">A propos</a></li>
+                  <li class="nav-item"><a href="/login">Connexion</a></li>
+                  <li class="nav-item"><a href="/register">S'enregistrer</a></li>
+                </ul>
+              {% else %}
+                <ul>
+                  <li class="nav-item"><a href="/">Accueil</a></li>
+                  <li class="nav-item"><a href="/a_propos">A propos</a></li>
+                  <li class="nav-item"><a href="/dashboard">Tableau de bord</a></li>
+                  <li class="nav-item"><a href="/logout">Déconnexion</a></li>
+                </ul>
+              {% endif %}
+            {% endblock %}
+            
+          </nav>
+          <div class="grad-bar"></div>
+      </div>
+    </div>
+
+    <header>
+      <h1>A propos de nous - SafetyMap</h1>
+    </header>
+
+    <section id="fonctionnement">
+      <h2>Comment utiliser le site SafetyMap ?</h2>
+      <p>
+        Le site présente sur la page principale une carte interactive sur laquelle s'affiche tous les incidents rapportés par les utilisateurs. 
+        Sur cette carte, la légende permet de sélectionner quel type d'incident vous voulez afficher, en masquant les autres.
+        Le panneau de droite propose plusieurs choses :
+      </p>
+      <ul>
+        <li>Un bouton pour indiquer un incident dont vous auriez été témoin</li>
+        <li>Des statistiques sur les incidents rapportés par les utilisateurs</li>
+        <li>Un graphique montrant la répartition des rapports d'incidents par type d'incident</li>
+      </ul>
+
+      <br>
+      <h3>Comment signaler un incident ?</h3>
+      <p>
+        Le bouton pour signaler un incident vous renvoie à une page qui vous permet de sélectionner les informations de l'incident que vous voulez signaler.
+        Vous pouvez ainsi décrire la date et l'heure de l'incident ainsi que son type, que vous pouvez choisir dans un menu déroulant (régulièrement mis à jour).
+        Vous pouvez ensuite choisir sur la carte l'emplacement exact de l'incident que vous voulez signaler. Il suffit alors de double-cliquer sur la carte à l'endroit choisi
+        pour y ajouter un marqueur.
+      </p>
+      <p><strong>Notez qu'il faut nécessairement être authentifié pour accéder au signalement.</strong></p>
+
+      <br>
+      <h3>Le tableau de bord</h3>
+      <p>Une fois que vous vous êtes connecté, vous avez accès à votre tableau de bord qui résume vos informations personnelles, vos statistiques d'activité sur le site
+        ainsi que les différents signalements que vous avez fait.
+        <p><strong>ATTENTION : Vous ne pouvez pas supprimer un incident que vous avez signalé. 
+          Pour garder le site précis et juste, s'il-vous-plaît, soyez sûr des informations que vous entrez.</strong></p>
+      </p>
+    </section>
+
+    <div class="main">
+      <section id="qsn">
+        <h2>Qui sommes nous ?</h2>
+        <p>Nous sommes 4 élèves de Telecom Nancy dont le projet est de rendre notre ville plus sûre.</p>
+      </section>
+
+      <section id="equipe">
+        <h2>Notre équipe</h2>
+        <ul>
+          <li>Mathis Bourget</li>
+          <li>Alexis Chavy</li>
+          <li>Victor Davillé</li>
+          <li>Arthur Saunier</li>
+        </ul>
+      </section>
+
+      <section id="motivation">
+        <h2>Notre motivation</h2>
+        <p> En France, 20% des Français déclarent ressentir une certaine insécurité, dont 27% parmi les femmes. 
+            De plus en plus de personnes n'osent plus sortir seules le soir et les solutions à ce problème restent limitées voire inexistantes.</p>
+        <p> En faisant ce constat auprès de nos proches et de nos camarades, nous avons décidé d'agir pour améliorer cette situation.</p>
+        <br>
+        <p> La question que nous avons alors décidé de traiter est la suivante :</p>
+        <p><strong>Comment pourrions-nous faciliter l’accès à l’information 
+            sur l’insécurité dans les villes pour le bien-être de la population?</strong></p>
+        </section>
+
+      <section id="solutions">
+        <h2>Notre solution</h2>
+        <p> 
+            Cette carte interactive a pour but d'avertir les utilisateurs de SafetyMap des potentiels dangers récents observés en ville, 
+            et ce de manière collaborative et simultanée. L'idée est donc qu'à travers cet outil, chaque citoyen pourra être informé des dangers qu'il sera
+            susceptible de rencontrer et pourra lui aussi informer les autres de ce dont il est témoin. Les utilisateurs pourront alors choisir un autre itinéraire 
+            pour éviter les mauvaises rencontres ou les retards.
+        </p>
+      </section>
+
+      
+    </div>
+
+    <div>
+    <footer class="bottom-text">
+      <p>&copy; 2023 SafetyMap. All rights reserved.</p>
+    </footer>
+    </div>
+  </body>
+</html>-->
+
+{% extends "base.html" %}
+
+{% block head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A propos - SafetyMap</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/a_propos.css') }}">
+{% endblock %}
+
+{% block content %}
+  <header>
+    <h1>A propos de nous - SafetyMap</h1>
+  </header>
+
+  <section id="fonctionnement">
+    <h2>Comment utiliser le site SafetyMap ?</h2>
+    <p>
+      Le site présente sur la page principale une carte interactive sur laquelle s'affiche tous les incidents rapportés par les utilisateurs. 
+      Sur cette carte, la légende permet de sélectionner quel type d'incident vous voulez afficher, en masquant les autres.
+      Le panneau de droite propose plusieurs choses :
+    </p>
+    <ul>
+      <li>Un bouton pour indiquer un incident dont vous auriez été témoin</li>
+      <li>Des statistiques sur les incidents rapportés par les utilisateurs</li>
+      <li>Un graphique montrant la répartition des rapports d'incidents par type d'incident</li>
+    </ul>
+
+    <br>
+    <h3>Comment signaler un incident ?</h3>
+    <p>
+      Le bouton pour signaler un incident vous renvoie à une page qui vous permet de sélectionner les informations de l'incident que vous voulez signaler.
+      Vous pouvez ainsi décrire la date et l'heure de l'incident ainsi que son type, que vous pouvez choisir dans un menu déroulant (régulièrement mis à jour).
+      Vous pouvez ensuite choisir sur la carte l'emplacement exact de l'incident que vous voulez signaler. Il suffit alors de double-cliquer sur la carte à l'endroit choisi
+      pour y ajouter un marqueur.
+    </p>
+    <p><strong>Notez qu'il faut nécessairement être authentifié pour accéder au signalement.</strong></p>
+
+    <br>
+    <h3>Le tableau de bord</h3>
+    <p>Une fois que vous vous êtes connecté, vous avez accès à votre tableau de bord qui résume vos informations personnelles, vos statistiques d'activité sur le site
+      ainsi que les différents signalements que vous avez fait.
+      <p><strong>ATTENTION : Vous ne pouvez pas supprimer un incident que vous avez signalé. 
+        Pour garder le site précis et juste, s'il-vous-plaît, soyez sûr des informations que vous entrez.</strong></p>
+    </p>
+  </section>
+
+  <div class="main">
+    <section id="qsn">
+      <h2>Qui sommes nous ?</h2>
+      <p>Nous sommes 4 élèves de Telecom Nancy dont le projet est de rendre notre ville plus sûre.</p>
+    </section>
+
+    <section id="equipe">
+      <h2>Notre équipe</h2>
+      <ul>
+        <li>Mathis Bourget</li>
+        <li>Alexis Chavy</li>
+        <li>Victor Davillé</li>
+        <li>Arthur Saunier</li>
+      </ul>
+    </section>
+
+    <section id="motivation">
+      <h2>Notre motivation</h2>
+      <p> En France, 20% des Français déclarent ressentir une certaine insécurité, dont 27% parmi les femmes. 
+          De plus en plus de personnes n'osent plus sortir seules le soir et les solutions à ce problème restent limitées voire inexistantes.</p>
+      <p> En faisant ce constat auprès de nos proches et de nos camarades, nous avons décidé d'agir pour améliorer cette situation.</p>
+      <br>
+      <p> La question que nous avons alors décidé de traiter est la suivante :</p>
+      <p><strong>Comment pourrions-nous faciliter l’accès à l’information 
+          sur l’insécurité dans les villes pour le bien-être de la population?</strong></p>
+      </section>
+
+    <section id="solutions">
+      <h2>Notre solution</h2>
+      <p> 
+          Cette carte interactive a pour but d'avertir les utilisateurs de SafetyMap des potentiels dangers récents observés en ville, 
+          et ce de manière collaborative et simultanée. L'idée est donc qu'à travers cet outil, chaque citoyen pourra être informé des dangers qu'il sera
+          susceptible de rencontrer et pourra lui aussi informer les autres de ce dont il est témoin. Les utilisateurs pourront alors choisir un autre itinéraire 
+          pour éviter les mauvaises rencontres ou les retards.
+      </p>
+    </section>
+
+    
+  </div>
+{% endblock %}

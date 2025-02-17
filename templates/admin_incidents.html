@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_check.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <title>Admin - incidents</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Reports</th>
+        </tr>
+        <tr>
+            <td>
+                <div id="map"></div>
+                <table>
+                    {% for report in reports %}
+                        <tr>
+                            <td lat="{{ report[3] }}" long="{{ report[4] }}" class="report">{{ loop.index }}) Type : {{ types_dict[report[-1]] }}, Date : {{ report[1] }}, Coordonnées : {{ report[3] }},{{ report[4] }}</td>
+                            <form action="/admin/delete_report" method="post">
+                                <input type="hidden" name="report_id" value="{{ report[0] }}">
+                                <div class="delete">
+                                    <td><button type="submit" id="delete">Delete report</button></td>
+                                </div>
+                            </form>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="{{ url_for('static', filename='js/map_admin.js') }}"></script>

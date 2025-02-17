@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalement - SafetyMap</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/LogoTransparent.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report_incident.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <div class="report">
+        <div class="container">
+            <div class="form-container">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="logo">
+                </a>
+                <h1>Signaler un incident</h1><h2>4 étapes à suivre</h2>
+                <form method="post" action="/report_incident">
+                    <div class="form-group">
+                        <label for="type_incident">1. Type d'incident</label>
+                        <select class="select" name="type" id="type_incident">
+                            {% for incident_type in types %}
+                            <option value="{{ incident_type[0] }}">{{ incident_type[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">2. Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Heure">3. Heure</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <input type="hidden" id="long" name="long">
+                    <input type="hidden" id="lat" name="lat">
+                    <button type="submit" id="submit">Signaler</button>
+                </form>
+            </div>
+            <div class="map-container">
+                <p style="align-items: center;font-weight: bold;">4. Zoomer sur la carte jusqu'à la zone de l'incident puis double cliquer précisément sur le lieu</p>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="{{ url_for('static', filename='js/map_add.js') }}"></script>
